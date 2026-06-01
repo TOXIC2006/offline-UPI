@@ -1,3 +1,62 @@
+# 🚀 UPI Offline Mesh — Demo
+
+> **Offline UPI Payments over a Bluetooth-style Mesh Network**
+>
+> Send payments even when there is **no internet connectivity**. Transactions hop from device to device until a bridge node reaches the internet and settles the payment securely.
+
+---
+
+## ✨ Highlights
+
+- 🔒 End-to-end encrypted payments (RSA-OAEP + AES-256-GCM)
+- 🔄 Mesh-based packet forwarding
+- 🛡️ Replay and tamper protection
+- ⚡ Idempotent settlement (exactly-once processing)
+- 📊 Interactive dashboard
+- 🧪 Concurrency and security tests included
+
+---
+
+## 🏗 Architecture Overview
+
+```text
+Sender Phone (Offline)
+        │
+        ▼
+Encrypted Payment Packet
+        │
+        ▼
+ Bluetooth Mesh Network
+        │
+        ▼
+Bridge Node (Gets Internet)
+        │
+        ▼
+Spring Boot Backend
+        │
+        ├── Idempotency Check
+        ├── Decryption
+        ├── Freshness Validation
+        └── Settlement
+```
+
+---
+
+## 📚 Table of Contents
+
+1. What this demo proves
+2. Getting Started
+3. Demo Walkthrough
+4. Architecture
+5. Security Design
+6. API Reference
+7. Tests
+8. Production Considerations
+9. Limitations
+10. Troubleshooting
+
+---
+
 # UPI Offline Mesh — Demo
 
 A Spring Boot backend that demonstrates **offline UPI payments routed through a Bluetooth-style mesh network**. You're in a basement with zero connectivity. You send your friend ₹500. Your phone encrypts the payment, broadcasts it to nearby phones, and the packet hops device-to-device until *some* phone walks outside, gets 4G, and silently uploads it to this backend. The backend decrypts, deduplicates, and settles.
@@ -403,5 +462,4 @@ For a college / portfolio project: name the concept honestly as **"mesh-routed d
 ## License
 
 Demo code, no license. Use it however you want for learning.
-#   o f f l i n e - U P I  
- 
+#
